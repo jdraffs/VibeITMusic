@@ -44,11 +44,13 @@
     color: #ececec;
   }
   
-  .nav-link img {
-    width: 2rem;
-    min-width: 2rem;
-    margin: 0 1.5rem;
-  }
+.nav-link img {
+  width: 2px;
+  height: 2px;
+  min-width: 2px;  /* Ensures the image is at least 2px wide */
+  margin: 0 1.5rem;
+}
+
   
   .navbar:hover {
     width: 16rem;
