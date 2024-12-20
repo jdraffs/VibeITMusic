@@ -2,7 +2,7 @@
     width: 5rem;
     height: 100vh;
     position: fixed;
-    margin-left: 0; /* Remove negative margin */
+    margin-left: 1rem;
     background-color: #23232e;
     transition: width 200ms ease;
     z-index: 1000; /* Ensure it's above other elements */
