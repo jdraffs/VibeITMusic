@@ -1,95 +1,88 @@
 .navbar {
-    width: 5rem;
-    height: 100vh;
-    position: fixed;
-    margin-left: -80px;
-    background-color: #23232e;
-    transition: width 200ms ease;
-    z-index: 1000; /* Ensure it's above other elements */
+  width: 5rem;
+  height: 100vh;
+  position: fixed;
+  margin-left: -80px;
+  background-color: #23232e;
+  transition: width 200ms ease;
+  z-index: 1000; /* Ensure it's above other elements */
+}
 
-  }
-  
-  .navbar-nav {
-    list-style: none;
-    padding: 0;
-    margin: -20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 10%;
-  }
-  
-  .nav-item {
-    width: 100%;
-  }
-  
-  .link-text {
-    display: none;
-    margin-left: 1rem;
-  }
-  
-  .nav-link {
-    display: flex;
-    align-items: center;
-    height: 5rem;
-    color: #b6b6b6;
-    text-decoration: none;
-    filter: grayscale(100%) opacity(0.7);
-    transition: 500ms;
-  }
-  
-  .nav-link:hover {
-    filter: grayscale(0%) opacity(1);
-    background: #141418;
-    color: #ececec;
-  }
-  
-  .nav-link img {
-    width: 4.8rem;
-    min-width: 4.8rem;
-    margin: 0 1.5rem;
-  }
-  
-  .navbar:hover {
-    width: 16rem;
-  }
-  
-  .navbar:hover .link-text {
-    display: block;
-  }
-  
-  .logo {
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-    text-align: center;
-    color: #ececec;
-    background: #141418;
-    font-size: 1.5rem;
-    letter-spacing: 0.3ch;
-    width: 100%;
-  }
-  
-  .logo img {
-    transform: rotate(0deg);
-    transition: 600ms;
-  }
-  
-  .logo-text {
-    display: inline;
-    position: absolute;
-    left: -999px;
-    transition: 600ms;
-  }
-  
-  .navbar:hover .logo img {
-    transform: rotate(-360deg);
-  }
+.navbar-nav {
+  list-style: none;
+  padding: 0;
+  margin: -20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 10%;
+}
 
-/* Style the profile button */
-.profile-dropdown {
-  position: relative;
-  display: inline-block;
+.nav-item {
+  width: 100%;
+}
+
+.link-text {
+  display: none;
+  margin-left: 1rem;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  color: #b6b6b6;
+  text-decoration: none;
+  filter: grayscale(100%) opacity(0.7);
+  transition: 500ms;
+}
+
+.nav-link:hover {
+  filter: grayscale(0%) opacity(1);
+  background: #141418;
+  color: #ececec;
+}
+
+.nav-link img {
+  width: 4.8rem;
+  min-width: 4.8rem;
+  margin: 0 1.5rem;
+}
+
+.navbar:hover {
+  width: 16rem;
+}
+
+.navbar:hover .link-text {
+  display: block;
+}
+
+.logo {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #ececec;
+  background: #141418;
+  font-size: 1.5rem;
+  letter-spacing: 0.3ch;
+  width: 100%;
+}
+
+.logo img {
+  transform: rotate(0deg);
+  transition: 600ms;
+}
+
+.logo-text {
+  display: inline;
+  position: absolute;
+  left: -999px;
+  transition: 600ms;
+}
+
+.navbar:hover .logo img {
+  transform: rotate(-360deg);
 }
 
 .profile-button {
@@ -103,22 +96,40 @@
 }
 
 .profile-icon {
-  width: 40px; /* Adjust size */
-  height: 40px;
+  width: 35px; /* Adjust size */
+  height: 35px;
   border-radius: 50%;
+  position: relative;
+  right: 1242px;
+  top: 2px;
+}
+
+.profile-dropdown {
+  background-color: rgb(56, 56, 56);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: absolute;
+  left: 1150px;
+  top: 6px;
+}
+
+.profile-dropdown:hover {
+  background-color: pink;
+  transition: background-color 0.5s ease;
 }
 
 /* Dropdown menu container */
 .dropdown-menu {
   display: none; /* Hidden by default */
   position: absolute;
-  right: 0; /* Aligns to the right of the button */
-  top: 50px; /* Adjust to match button position */
-  background-color: #333; /* Dropdown background color */
+  right: 0px;
+  top: 55px;
+  background-color: #333;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   z-index: 1000;
-  width: 200px; /* Adjust width as needed */
+  width: 200px;
 }
 
 /* Dropdown menu links */
@@ -135,14 +146,7 @@
   background-color: #444; /* Highlight on hover */
 }
 
-/* Show dropdown on button click */
-.profile-dropdown:hover .dropdown-menu {
-  display: block;
-}
-
+/* Active dropdown menu */
 .dropdown-menu.show {
   display: block;
 }
-
-
-

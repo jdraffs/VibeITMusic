@@ -11,33 +11,15 @@
     <script src="https://kit.fontawesome.com/d5b2540b36.js" crossorigin="anonymous"></script>
     <script src="assets/js/profile.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-
 </head>
 
 <body>
-
-    <!-- Add this inside your navigation bar (replace/add in your desired location) -->
-<div class="profile-dropdown">
-    <button class="profile-button">
-        <img src="assets/images/profile-icon.png" alt="Profile" class="profile-icon" />
-    </button>
-    <div class="dropdown-menu">
-        <a href="account.html">Account</a>
-        <a href="profile.html">Profile</a>
-        <a href="upgrade.html">Upgrade to Premium</a>
-        <a href="settings.html">Settings</a>
-        <a href="logout.php">Log Out</a>
-    </div>
-</div>
-
 
     <!-- Navigation Bar -->
     <nav class="navbar">
         <ul class="navbar-nav">
             <li class="logo">
                 <a class="nav-link" href="./index.html">
-                    
-
                     <img src="./assets/images/pd10-removebg-preview.png" alt="Vibe It Logo" />
                     <span class="link-text">Vibe It</span>
                 </a>
@@ -71,16 +53,81 @@
 
     <main>
         <!-- Top container -->
-        <div class="containertop"></div>
+        <div class="containertop">
+            <div class="profile-dropdown">
+                <button class="profile-button">
+                    <img src="assets/images/profile-icon.jpg" alt="Profile" class="profile-icon" />
+                </button>
+                <div class="dropdown-menu">
+                    <a href="account.html">Account</a>
+                    <a href="profile.html">Profile</a>
+                    <a href="upgrade.html">Upgrade to Premium</a>
+                    <a href="settings.html">Settings</a>
+                    <a href="logout.php">Log Out</a>
+                </div>
+            </div>
+        </div>
 
         <!-- Heading -->
         <h1 class="margin">Made For You!</h1>
 
-        <!-- Song list -->
-        <div class="container margin">
+        <!-- Song list with scroll buttons -->
+        <div class="songlist-container">
+            <button class="scroll-btn left" id="scrollLeft"><i class="fas fa-chevron-left"></i></button>
             <div class="songlist">
                 <!-- Song items -->
-                 
+                <div class="songitem">
+                    <img class="cover-setting" src="assets/images/covers/diewithasmile.png" alt="Blinding Lights" />
+                    <span class="songName">Die with a smile</span>
+                    <span class="songArtist">Lady Gaga ft. Bruno Mars</span>
+                </div>
+                <div class="songitem">
+                    <img class="cover-setting" src="assets/images/covers/dejavu.jpg" alt="Blinding Lights" />
+                    <span class="songName">Deja vu</span>
+                    <span class="songArtist">Olivia Rodrigo Duterte</span>
+                </div>
+                <div class="songitem">
+                    <img class="cover-setting" src="assets/images/covers/wecantbefriends.jpg" alt="Blinding Lights" />
+                    <span class="songName">We can't be friends</span>
+                    <span class="songArtist">Ariana Grande</span>
+                </div>
+                <div class="songitem">
+                    <img class="cover-setting" src="assets/images/covers/cruelsummer.jpeg" alt="Blinding Lights" />
+                    <span class="songName">Cruel Summer</span>
+                    <span class="songArtist">Taylor Swift</span>
+                </div>
+                <div class="songitem">
+                    <img class="cover-setting" src="assets/images/covers/angelbaby.jpeg" alt="Blinding Lights" />
+                    <span class="songName">Angel Baby</span>
+                    <span class="songArtist">Troye Sivan</span>
+                </div>
+                <div class="songitem">
+                    <img class="cover-setting" src="assets/images/covers/loveyoulikealovesong.jpg" alt="Blinding Lights" />
+                    <span class="songName">Love You like a Love Song</span>
+                    <span class="songArtist">Selena Gomez </span>
+                </div>
+                <div class="songitem">
+                    <img class="cover-setting" src="assets/images/covers/newrules.png" alt="Blinding Lights" />
+                    <span class="songName">New Rules</span>
+                    <span class="songArtist">Dua Lipa</span>
+                </div>
+                <div class="songitem">
+                    <img class="cover-setting" src="assets/images/covers/ere.jpg" alt="Blinding Lights" />
+                    <span class="songName">Ere</span>
+                    <span class="songArtist">Juan Karlos</span>
+                </div>
+
+
+                <div class="songitem">
+                    <img class="cover-setting" src="assets/images/covers/saan.jpg" alt="Blinding Lights" />
+                    <span class="songName">Saan</span>
+                    <span class="songArtist">Maki</span>
+                </div>
+                <div class="songitem">
+                    <img class="cover-setting" src="assets/images/covers/jealous.jpg" alt="Blinding Lights" />
+                    <span class="songName">Jealous</span>
+                    <span class="songArtist">Nick Jonas</span>
+                </div>
                 <div class="songitem">
                     <img class="cover-setting" src="assets/images/covers/blindinglightsimg.png" alt="Blinding Lights" />
                     <span class="songName">Blinding Lights</span>
@@ -117,6 +164,7 @@
                     <span class="songArtist">SZA</span>
                 </div>
             </div>
+            <button class="scroll-btn right" id="scrollRight"><i class="fas fa-chevron-right"></i></button>
         </div>
 
         <h1 class="head">What is this for?</h1>
@@ -124,17 +172,20 @@
         <!-- Player controls -->
         <div class="playcontainer">
             <div class="songinfo-container">
-                <div class="songinfo" >
-                        <img id="masterSongImage" src="" width="100px" alt="Current Song Image" />
-                        <div class="masterSongInfo">
-                            <label id="masterSongName">Click a song to play</label><br />
-                            <label id="masterSongArtist">...</label>
-                        </div>
-
+                <div class="songinfo">
+                    <img id="masterSongImage" src="" width="100px" alt="Current Song Image" />
+                    <div class="masterSongInfo">
+                        <label id="masterSongName">Click a song to play</label><br />
+                        <label id="masterSongArtist">...</label>
+                    </div>
                 </div>
             </div>
             <div class="progcontainer">
-                <input type="range" id="songProgress" min="0" max="100" />
+                <div class="progress">
+                    <label id="currentTimeLabel">0:00</label>
+                    <input type="range" id="songProgress" min="0" max="100" />
+                    <label id="durationLabel">0:00</label>
+                </div>
                 <div class="icon">
                     <i class="fas fa-2x fa-step-backward" id="previous"></i>
                     <i class="fas fa-2x fa-play-circle" id="masterPlay"></i>
@@ -145,6 +196,38 @@
     </main>
 
     <script src="assets/js/home.js"></script>
+    <script>
+        // JavaScript to toggle dropdown visibility
+        document.addEventListener("DOMContentLoaded", function () {
+            const profileButton = document.querySelector(".profile-button");
+            const dropdownMenu = document.querySelector(".dropdown-menu");
+
+            profileButton.addEventListener("click", function (event) {
+                event.stopPropagation(); // Prevent click from propagating to document
+                dropdownMenu.classList.toggle("show");
+            });
+
+            // Close dropdown if clicking outside
+            document.addEventListener("click", function () {
+                dropdownMenu.classList.remove("show");
+            });
+        });
+
+        // JavaScript for scroll buttons functionality
+        let songListContainer = document.querySelector('.songlist');
+        let scrollLeftBtn = document.getElementById('scrollLeft');
+        let scrollRightBtn = document.getElementById('scrollRight');
+
+        // Scroll the song list left
+        scrollLeftBtn.addEventListener('click', () => {
+            songListContainer.scrollBy({ left: -200, behavior: 'smooth' });
+        });
+
+        // Scroll the song list right
+        scrollRightBtn.addEventListener('click', () => {
+            songListContainer.scrollBy({ left: 200, behavior: 'smooth' });
+        });
+    </script>
 </body>
 
 </html>
