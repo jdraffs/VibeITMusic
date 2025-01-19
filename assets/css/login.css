@@ -6,7 +6,7 @@ body {
     align-items: center;
     min-height: 100vh;
     font-family: 'Century Gothic', 'URW Gothic', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background: url("/assets/images/image15.png");
+    background: url("../images/image15.png");
     background-size: cover;
 }
 
