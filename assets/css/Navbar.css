@@ -1,9 +1,20 @@
+.logo {
+  position: relative;
+  right: 20px;
+  border-radius: 5%;
+}
+
+.logo-img {
+  position: relative;
+  left: 15px;
+}
+
 .navbar {
   width: 5rem;
   height: 100vh;
   position: fixed;
   margin-left: -80px;
-  background-color: #23232e;
+  background-color: #191919;
   transition: width 200ms ease;
   z-index: 1000; /* Ensure it's above other elements */
 }
@@ -23,6 +34,7 @@
 }
 
 .link-text {
+  color: white;
   display: none;
   margin-left: 1rem;
 }
@@ -31,7 +43,8 @@
   display: flex;
   align-items: center;
   height: 5rem;
-  color: #b6b6b6;
+  max-width: 275px;
+  color: #fdfdfd;
   text-decoration: none;
   filter: grayscale(100%) opacity(0.7);
   transition: 500ms;
@@ -40,7 +53,6 @@
 .nav-link:hover {
   filter: grayscale(0%) opacity(1);
   background: #141418;
-  color: #ececec;
 }
 
 .nav-link img {
@@ -55,6 +67,7 @@
 
 .navbar:hover .link-text {
   display: block;
+  color: rgb(255, 98, 174);
 }
 
 .logo {
@@ -109,13 +122,13 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  position: absolute;
-  left: 1150px;
-  top: 6px;
+  position: fixed;
+  top: 4;
+  right: 20px;
 }
 
 .profile-dropdown:hover {
-  background-color: pink;
+  background-color: rgb(255, 98, 174);
   transition: background-color 0.5s ease;
 }
 
