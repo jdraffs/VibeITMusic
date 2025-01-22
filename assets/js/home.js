@@ -1,4 +1,15 @@
-﻿console.log("Welcome to Spotify");
+console.log("Welcome to VibeIT");
+
+// Initialize states for shuffle, repeat, and mute
+let isShuffling = false;
+let repeatMode = 0; // 0: No repeat, 1: Repeat current, 2: Repeat all
+let previousVolume = 1; // Stores volume level before mute
+
+// Shuffle and Repeat buttons
+let shuffleButton = document.getElementById('shuffle');
+let repeatButton = document.getElementById('repeat');
+let volumeControl = document.getElementById('volumeControl');
+let muteButton = document.getElementById('muteButton');
 
 // Initialize the Variables
 let songIndex = 0;
@@ -9,10 +20,6 @@ let masterSongName = document.getElementById('masterSongName');
 let masterSongArtist = document.getElementById('masterSongArtist');
 let songItems = Array.from(document.getElementsByClassName('songitem'));
 let masterSongImage = document.getElementById('masterSongImage');
-
-// Scroll Buttons
-let scrollLeft = document.getElementById('scrollLeft');
-let scrollRight = document.getElementById('scrollRight');
 
 // Updated songs array with artist information
 let songs = [
@@ -34,6 +41,7 @@ let songs = [
     { songName: "Horsepower", songArtist: "Daniel Caesar", filePath: "assets/songs/horsepower.mp3", coverPath: "assets/images/covers/horsepowercover.jpg" },
     { songName: "BMF", songArtist: "SZA", filePath: "assets/songs/bmf.mp3", coverPath: "assets/images/covers/bmfcover.jpg" },
 ];
+
 
 // Function to format time in minutes:seconds
 function formatTime(seconds) {
@@ -79,11 +87,13 @@ masterPlay.addEventListener('click', () => {
     }
 });
 
-// Update the progress bar and time labels
-audioElement.addEventListener('timeupdate', () => {
-    // Update progress bar
-    let progress = parseInt((audioElement.currentTime / audioElement.duration) * 100);
+// Update the progress bar and time labels in real time
+    audioElement.addEventListener('timeupdate', () => {
+    let progress = (audioElement.currentTime / audioElement.duration) * 100 || 0;
     songProgress.value = progress;
+
+    // Dynamically update the background gradient
+    songProgress.style.background = `linear-gradient(to right, rgb(255, 98, 174) ${progress}%, rgb(29, 29, 29) ${progress}%)`;
 
     // Update current time label
     let currentTimeLabel = document.getElementById('currentTimeLabel');
@@ -94,6 +104,23 @@ audioElement.addEventListener('timeupdate', () => {
     if (!isNaN(audioElement.duration)) {
         durationLabel.innerText = formatTime(audioElement.duration);
     }
+});
+
+// Sync background gradient on input for a smooth drag effect
+    songProgress.addEventListener('input', () => {
+    let progress = songProgress.value;
+    songProgress.style.background = `linear-gradient(to right, rgb(255, 98, 174) ${progress}%, rgb(29, 29, 29) ${progress}%)`;
+
+    // Update playback position
+    let seekTime = (progress / 100) * audioElement.duration;
+    audioElement.currentTime = seekTime;
+}); 
+
+// Make the progress bar draggable 
+    songProgress.addEventListener('input', () => {
+    // When the user drags the glider, calculate the new time
+    let seekTime = (songProgress.value / 100) * audioElement.duration;
+    audioElement.currentTime = seekTime; // Update the playback position
 });
 
 // Seek song based on progress bar
@@ -172,11 +199,93 @@ function updateSongLabels() {
     }
 }
 
-// Scroll functionality for song list
-scrollLeft.addEventListener('click', () => {
-    document.querySelector('.songlist').scrollBy({ left: -200, behavior: 'smooth' });
+
+
+// Mute/Unmute functionality
+muteButton.addEventListener('click', () => {
+    if (audioElement.volume > 0) {
+        previousVolume = audioElement.volume; // Save current volume
+        audioElement.volume = 0;
+        volumeControl.value = 0; // Update slider
+        muteButton.innerHTML = '<i class="fas fa-volume-mute"></i>'; // Update icon
+    } else {
+        audioElement.volume = previousVolume; // Restore volume
+        volumeControl.value = previousVolume * 100; // Restore slider position
+        muteButton.innerHTML = '<i class="fas fa-volume-up"></i>'; // Update icon
+    }
 });
 
-scrollRight.addEventListener('click', () => {
-    document.querySelector('.songlist').scrollBy({ left: 200, behavior: 'smooth' });
+// Volume control slider
+volumeControl.addEventListener('input', () => {
+    let volume = volumeControl.value; // Get the volume value (0-100)
+    volumeControl.style.background = `linear-gradient(to right, rgb(255, 98, 174) ${volume}%, rgb(29, 29, 29) ${volume}%)`;
+
+    // Update the audio element's volume
+    audioElement.volume = volume / 100;
+
+    // Update the mute button icon based on volume level
+    if (volume == 0) {
+        muteButton.innerHTML = '<i class="fas fa-volume-mute"></i>'; // Mute icon
+    } else {
+        muteButton.innerHTML = '<i class="fas fa-volume-up"></i>'; // Unmute icon
+    }
 });
+
+// Initialize the slider with the correct background gradient on page load
+document.addEventListener('DOMContentLoaded', () => {
+    let volume = volumeControl.value; // Initial volume value (0-100)
+    volumeControl.style.background = `linear-gradient(to right, rgb(255, 98, 174) ${volume}%, rgb(29, 29, 29) ${volume}%)`;
+});
+
+// Toggle Shuffle Mode
+shuffleButton.addEventListener('click', () => {
+    isShuffling = !isShuffling;
+    shuffleButton.classList.toggle('active', isShuffling); // Highlight active state
+});
+
+// Toggle Repeat Mode with distinct visual cues
+repeatButton.addEventListener('click', () => {
+    repeatMode = (repeatMode + 1) % 3; // Cycle between 0 (No Repeat), 1 (Repeat Current), 2 (Repeat All)
+
+    // Reset styles
+    repeatButton.classList.remove('repeat-all', 'repeat-current', 'no-repeat');
+
+    if (repeatMode === 1) {
+        repeatButton.classList.add('repeat-current'); // Green for Repeat Current Song
+        repeatButton.title = 'Repeat Current Song';
+    } else if (repeatMode === 2) {
+        repeatButton.classList.add('repeat-all'); // Blue for Repeat All Songs
+        repeatButton.title = 'Repeat All Songs';
+    } else {
+        repeatButton.classList.add('no-repeat'); // Gray for No Repeat
+        repeatButton.title = 'No Repeat';
+    }
+});
+
+function redirectToPodcast1() {
+    window.location.href = './podcast.html';
+}
+
+function redirectToPodcast2() {
+    window.location.href = './podcast1.html';
+}
+
+function redirectToPodcast3() {
+    window.location.href = './podcast2.html';
+}
+
+function redirectToPodcast4() {
+    window.location.href = './podcast3.html';
+}
+
+function redirectToPodcast5() {
+    window.location.href = './podcast4.html';
+}
+
+function redirectToPodcast6() {
+    window.location.href = './podcast5.html';
+}
+
+function redirectToPodcast7() {
+    window.location.href = './podcast6.html';
+}
