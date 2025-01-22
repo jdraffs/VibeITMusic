@@ -7,6 +7,13 @@ body {
     padding-left: 5rem; /* Adjust content to avoid overlap with navbar */
     box-sizing: border-box; /* Ensure consistent padding behavior */
     transition: margin-left 200ms ease; /* Smooth transition when navbar expands */
+    overflow: visible;
+}
+
+#main {
+    position: relative;
+    top: 25px;
+    height: 1500px;
 }
 
 /* Text styles */
@@ -14,13 +21,19 @@ body {
     color: white;
     text-align: left;
     padding-left: 30px;
+    margin-bottom: 5px;
 }
 
 /* Top container */
 .containertop {
     background-color: rgb(20, 20, 20);
     height: 60px;
+    width: 100%;
     margin-top: -17px;
+    position: fixed;
+    z-index: 900; 
+    top: 15px;
+    left: 0;
 }
 
 /* Song list container */
@@ -77,6 +90,43 @@ body {
     display: none; /* Hide scrollbar in Webkit browsers (Chrome, Safari) */
 }
 
+
+.recommend-list {
+    display: flex; /* Arrange songs in rows */
+    flex-wrap: nowrap; /* Prevent wrapping */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    background-color: rgb(29, 29, 29);
+    color: white;
+    gap: 20px; /* Add consistent spacing between rows and columns */
+    padding: 15px;
+    -ms-overflow-style: none;  /* Hide scrollbar in Internet Explorer */
+    scrollbar-width: none; /* Hide scrollbar in Firefox */
+    margin: auto;
+    width: max-content;
+    
+    
+}
+
+.recommend-list::-webkit-scrollbar {
+    display: none; /* Hide scrollbar in Webkit browsers (Chrome, Safari) */
+}
+
+.artist-list {
+    display: flex; /* Arrange songs in rows */
+    flex-wrap: nowrap; /* Prevent wrapping */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    background-color: rgb(29, 29, 29);
+    color: white;
+    gap: 20px; /* Add consistent spacing between rows and columns */
+    margin: auto;
+    padding: 15px;
+    width: 1250px;
+}
+
+.artist-list::-webkit-scrollbar {
+    display: none; /* Hide scrollbar in Webkit browsers (Chrome, Safari) */
+}
+
 /* Individual song items */
 .songitem {
     background-color: #242424;
@@ -118,8 +168,69 @@ body {
     letter-spacing: 0.5px;
 }
 
+
+.artistName {
+    font-size: 14px;
+    margin: auto;
+    margin-top: 5px;
+    color: white;
+    letter-spacing: 0.5px;
+}
+
+.albumitem {
+    background-color: (29, 29, 29);
+    display: flex;
+    flex-direction: column; /* Arrange content vertically */
+    align-items: center; /* Center-align content */
+    padding: 10px;
+    border-radius: 5px;
+    width: 150px; /* Standardize the width of each card */
+    text-align: center;
+}
+
+.albumitem:hover {
+    cursor: pointer;
+    transform: scale(1.1); /* Zoom in the image on hover */
+    filter: grayscale(100%); /* Apply grayscale on hover */
+    background-color: #242424;
+}
+
+.albumitem img {
+    height: 120px;
+    width: 120px;
+    border-radius: 10px;
+    margin-bottom: 10px; /* Space between image and text */
+}
+
+.artistitem {
+    background-color: (29, 29, 29);
+    display: flex;
+    flex-direction: column; /* Arrange content vertically */
+    align-items: center; /* Center-align content */
+    padding: 10px;
+    border-radius: 5px;
+    width: 150px; /* Standardize the width of each card */
+    text-align: center;
+}
+
+.artistitem:hover {
+    cursor: pointer;
+    transform: scale(1.1); /* Zoom in the image on hover */
+    filter: grayscale(100%); /* Apply grayscale on hover */
+    background-color: #242424;
+}
+
+.artistitem img {
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+    margin-bottom: 10px; /* Space between image and text */
+}
+
+
+
 /* Player controls */
-.playcontainer {
+.bottomcontainer {
     background-color: rgb(14, 13, 13);
     color: white;
     width: 100%;
@@ -133,6 +244,13 @@ body {
     box-sizing: border-box;
 }
 
+.playcontaier {
+    width: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+
+}
 .songinfo-container {
     align-items: center;
 }
@@ -183,8 +301,8 @@ body {
     justify-content: center;
     width: 500px;
     margin: auto;
-    position: absolute;
-    left: 350px;
+    position: fixed;
+    left: 35%;
 }
 
 /* Progress bar */
@@ -204,14 +322,17 @@ body {
 
 #songProgress {
     width: 100%; /* Stretch progress bar to fill available space */
-    background-color: transparent;
+    background: linear-gradient(to right, rgb(255, 98, 174) 0%, rgb(255, 98, 174) 0%, rgb(29, 29, 29) 0%);
     border: none;
+    height: 3px;
+    border-radius: 3px;
     -webkit-appearance: none;
     appearance: none;
+    outline: none; /* Removes outline when focused */
 }
 
 #songProgress::-webkit-slider-runnable-track {
-    background-color: rgb(29, 29, 29);
+    background-color: transparent; /* Background controlled by the parent */
     height: 3px;
     border-radius: 3px;
 }
@@ -222,6 +343,12 @@ body {
     height: 10px;
     background-color: white;
     border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    bottom: 3px;
+}
+
+#songProgress:hover {
     cursor: pointer;
 }
 
@@ -238,23 +365,102 @@ body {
     cursor: pointer;
 }
 
-.link-text {
-    color: white;
-}
-
-.link-text:hover {
-    color: rgb(255, 98, 174);
-}
-
-.logo {
-    margin: 0px;
-}
-
 .head {
     margin-left: 20px;
     color: white;
+    margin-bottom: 0px;
+}
+
+.head-recommend {
+    margin-left: 30px;
+    color: white;
+    margin-top: 35px;
+    margin-bottom: 5px;
 }
 
 .bottommargin {
     margin: auto;
+}
+
+#shuffle, #repeat {
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+#shuffle.active, #repeat.active {
+    color: rgb(255, 98, 174); /* Highlight active state */
+}
+
+.sound-settings {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    gap: 10px;
+    position: absolute;
+    left: 620px;
+}
+
+#volumeControl {
+    width: 150px; /* Stretch volume slider to desired width */
+    background: linear-gradient(to right, rgb(255, 98, 174) 50%, rgb(29, 29, 29) 50%);
+    border: none;
+    height: 3px;
+    border-radius: 3px;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none; /* Removes outline when focused */
+}
+
+#volumeControl::-webkit-slider-runnable-track {
+    background-color: transparent; /* Background controlled by the parent */
+    height: 3px;
+    border-radius: 3px;
+}
+
+#volumeControl::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 5px;
+    height: 12px;
+    background-color: white;
+    border-radius: 0;
+    cursor: pointer;
+    position: relative;
+    bottom: 3px;
+}
+
+#volumeControl:hover {
+    cursor: pointer;
+}
+
+
+
+#muteButton {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 18px;
+    cursor: pointer;
+    position: relative;
+    right: 200px;
+}
+
+#muteButton:hover {
+    color: rgb(255, 98, 174);
+}
+
+/* Default No Repeat */
+#repeat.no-repeat {
+    color: gray;
+}
+
+/* Repeat All */
+#repeat.repeat-all {
+    color: blue;
+}
+
+/* Repeat Current */
+#repeat.repeat-current {
+    color: green;
 }
