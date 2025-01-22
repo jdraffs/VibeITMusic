@@ -1,0 +1,113 @@
+/* Container for the search bar */
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    background-color: #121212; /* Spotify-like dark background */
+    border-radius: 20px;
+    padding: 8px 15px;
+    width: 500px;
+    height: 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    transition: all 0.3s ease-in-out;
+    position: fixed;
+    left: 270px;
+    top: 6px;
+    border: 2px solid rgb(214, 214, 214);
+  }
+  
+  /* Search icon */
+  .search-icon {
+    color: #b3b3b3; /* Gray color for the icon */
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  
+  /* Input field */
+  .search-input {
+    flex: 1; /* Fills remaining space */
+    border: none;
+    background: none;
+    color: #ffffff; /* White text for better contrast */
+    font-size: 14px;
+    outline: none; /* Remove outline on focus */
+    caret-color: #1db954; /* Spotify green caret */
+  }
+  
+  /* Hover and focus effects */
+  .search-bar-container:hover,
+  .search-bar-container:focus-within {
+    background-color: #282828; /* Slightly lighter dark background on hover/focus */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgb(255, 98, 174);
+    transform: 0.3s ease-in;
+  }
+  
+  .search-input::placeholder {
+    color: #b3b3b3; /* Placeholder text color */
+    font-style: italic;
+  }
+  
+  /* For responsive adjustments */
+  @media (max-width: 600px) {
+    .search-bar-container {
+        width: 100%; /* Adjust width for smaller screens */
+    }
+  }
+  
+  .search-results {
+    display: none; /* Initially hidden */
+    position: absolute;
+    background-color: #333;
+    border-radius: 20px;
+    max-height: 200px;
+    overflow-y: auto;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    top: 45px;
+    right: 0px;
+    color: white;
+  }
+  
+  .search-results div {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .search-results div:hover {
+    background-color: #3f3f3f;
+  }
+  
+  .search-result-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+  }
+  
+  .search-result-item:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .search-result-cover {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 5px;
+  }
+  
+  .search-result-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .search-result-name {
+    font-weight: bold;
+  }
+  
+  .search-result-artist {
+    font-size: 0.9em;
+    color: #555;
+  }
+  
