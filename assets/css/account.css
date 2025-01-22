@@ -1,0 +1,113 @@
+/* Account Details Section Styling */
+.account-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px; /* Increased padding for better spacing */
+    text-align: center;
+    width: 70%; /* Occupies 70% of the screen width */
+    max-width: 900px; /* Limits max size for larger screens */
+    margin: auto; /* Centers the container horizontally */
+    background-color: rgb(46, 45, 45);
+    border-radius: 12px; /* Slightly rounded edges */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+}
+
+/* Headings */
+.account-container h1,
+.account-container h2 {
+    color: #f6f0f0;
+    margin-bottom: 20px;
+    font-size: 28px; /* Larger font for headings */
+    font-weight: bold;
+}
+
+/* Profile details styling */
+.account-details p {
+    font-size: 18px; /* Larger font for text */
+    color: #dcdcdc; /* Lighter gray for readability */
+    margin: 15px 0;
+}
+.account-details strong {
+    color: #fff4f4; /* Highlight for bold text */
+    font-weight: 600;
+}
+
+/* Button styling */
+.edit-btn {
+    background-color: rgb(255, 98, 174);
+    color: white;
+    border: none;
+    padding: 12px 25px; /* Increased button size */
+    font-size: 16px; /* Slightly larger font */
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+}
+
+.edit-btn:hover {
+    background-color: rgb(255, 70, 150);
+    transform: scale(1.05); /* Slight scale effect */
+}
+
+.account-actions ul {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0 0;
+}
+
+.account-actions li {
+    margin: 15px 0; /* Increased spacing between links */
+}
+
+.account-actions .action-link {
+    text-decoration: none;
+    font-size: 18px; /* Larger font for links */
+    color: rgb(255, 98, 174);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.account-actions .action-link:hover {
+    color: rgb(255, 70, 150);
+    text-decoration: underline;
+}
+
+/* Styling for loading text */
+#user-name, #user-email, #user-plan {
+    color: #b0b0b0; /* Lighter grey color for loading text */
+    font-style: italic; /* Italicized for emphasis */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        width: 150px; /* Smaller navbar for mobile screens */
+    }
+
+    .account-container {
+        width: 90%; /* Adjusts container to occupy most of the screen */
+        padding: 20px; /* Reduced padding for smaller screens */
+    }
+
+    .account-container h1,
+    .account-container h2 {
+        font-size: 24px; /* Smaller headings for mobile */
+    }
+
+    .account-details p {
+        font-size: 16px; /* Adjust text size */
+    }
+
+    .edit-btn {
+        padding: 10px 20px; /* Reduce button size slightly */
+        font-size: 14px;
+    }
+
+    .account-actions .action-link {
+        font-size: 16px; /* Adjust link size for mobile */
+    }
+}
