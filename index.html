@@ -1,4 +1,4 @@
-﻿﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VibeIt - Music On The Go</title>
     <link href="assets/css/home.css" rel="stylesheet" />
+    <link href="assets/css/buttons.css" rel="stylesheet" />
+    <link href="assets/css/homefunctions.css" rel="stylesheet" />
     <link href="assets/css/Navbar.css" media="screen and (min-width: 1100px)" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/d5b2540b36.js" crossorigin="anonymous"></script>
     <script src="assets/js/profile.js"></script>
@@ -20,7 +22,7 @@
         <ul class="navbar-nav">
             <li class="logo">
                 <a class="nav-link" href="./index.html">
-                    <img src="./assets/images/pd10-removebg-preview.png" alt="Vibe It Logo" />
+                    <img class="logo-img" src="./assets/images/pd10-removebg-preview.png" alt="Vibe It Logo" />
                     <span class="link-text">Vibe It</span>
                 </a>
             </li>
@@ -43,21 +45,26 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="chat.html">
                     <img src="./assets/images/home.png" alt="Request Songs" />
-                    <span class="link-text">Request Songs</span>
+                    <span class="link-text">Chatbot</span>
                 </a>
             </li>
         </ul>
     </nav>
 
-    <main>
-        <!-- Top container -->
-        <div class="containertop">
-            <div class="profile-dropdown">
-                <button class="profile-button">
-                    <img src="assets/images/Kween-Yasmins-1024x576.png" alt="Profile" class="profile-icon" />
-                </button>
+    <div class="containertop">
+        <div class="search-bar-container">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" class="search-input" placeholder="Search for songs, artists, or albums..." oninput="searchSongs(this.value)" />
+            <div id="searchResults" class="search-results"></div>
+        </div>
+        
+
+        <div class="profile-dropdown">
+            <button class="profile-button">
+                <img src="assets/images/Kween-Yasmins-1024x576.png" alt="Profile" class="profile-icon" />
+            </button>
                 <div class="dropdown-menu">
                     <a href="account.html">Account</a>
                     <a href="profile.html">Profile</a>
@@ -66,11 +73,32 @@
                     <a href="logout.php">Log Out</a>
                 </div>
             </div>
-        </div>
+    </div>
 
+    <main id="main">
+
+        <h1 class="margin"> Explore your favorites </h1>
+        <hr color="grey">
+        <div class="library-container">
+            <div class="librarybtn-playlist">
+            <label class="librarybtn-text">Playlist</label>
+            </div>
+            <div class="librarybtn-songs">
+            <label class="librarybtn-text">Songs</label>
+            </div>
+            <div class="librarybtn-albums">
+                <label class="librarybtn-text">Albums</label>
+            </div>
+            <div class="librarybtn-artist">
+                <label class="librarybtn-text">Artist</label>
+            </div>
+            <div class="librarybtn-podcast">
+                <label class="librarybtn-text">Podcast</label>
+            </div>
+        </div>       
+    
         <!-- Heading -->
         <h1 class="margin">Made For You!</h1>
-
         <!-- Song list with scroll buttons -->
         <div class="songlist-container">
             <button class="scroll-btn left" id="scrollLeft"><i class="fas fa-chevron-left"></i></button>
@@ -116,8 +144,6 @@
                     <span class="songName">Ere</span>
                     <span class="songArtist">Juan Karlos</span>
                 </div>
-
-
                 <div class="songitem">
                     <img class="cover-setting" src="assets/images/covers/saan.jpg" alt="Blinding Lights" />
                     <span class="songName">Saan</span>
@@ -167,67 +193,168 @@
             <button class="scroll-btn right" id="scrollRight"><i class="fas fa-chevron-right"></i></button>
         </div>
 
-        <h1 class="head">What is this for?</h1>
+            <div class="Topartist">
 
-        <!-- Player controls -->
-        <div class="playcontainer">
-            <div class="songinfo-container">
-                <div class="songinfo">
-                    <img id="masterSongImage" src="" width="100px" alt="Current Song Image" />
-                    <div class="masterSongInfo">
-                        <label id="masterSongName">Click a song to play</label><br />
-                        <label id="masterSongArtist">...</label>
+                <h1 class="head-recommend">Top Artist</h1>
+                <div class="artist-list">
+                    <!-- Song items -->
+                    <div class="artistitem">
+                        <img class="artist-cover" src="assets/images/covers/taylorcover.jpg" />
+                        <span class="artistName">Taylor Swift</span>
+                    </div>
+                    <div class="artistitem">
+                        <img class="artist-cover" src="assets/images/covers/sabrinacover.jpg" />
+                        <span class="artistName">Sabrina Carpenter</span>
+                    </div>
+                    <div class="artistitem">
+                        <img class="artist-cover" src="assets/images/covers/szacover.jpg" />
+                        <span class="artistName">Sza</span>
+                    </div>
+                    <div class="artistitem">
+                        <img class="artist-cover" src="assets/images/covers/makicover.jpg" />
+                        <span class="artistName">Maki</span>
+                    </div>
+                    <div class="artistitem">
+                        <img class="artist-cover" src="assets/images/covers/oliviacover.jpg" />
+                        <span class="artistName">Olivia Rodrigo Duterte</span>
+                    </div>
+                    <div class="artistitem">
+                        <img class="artist-cover" src="assets/images/covers/theweekndcover.jpg" />
+                        <span class="artistName">The Weeknd</span>
+                    </div>
+                    <div class="artistitem">
+                        <img class="artist-cover" src="assets/images/covers/ladygagacover.jpg" />
+                        <span class="artistName">Lady Gaga</span>
                     </div>
                 </div>
             </div>
-            <div class="progcontainer">
-                <div class="progress">
-                    <label id="currentTimeLabel">0:00</label>
-                    <input type="range" id="songProgress" min="0" max="100" />
-                    <label id="durationLabel">0:00</label>
-                </div>
-                <div class="icon">
-                    <i class="fas fa-2x fa-step-backward" id="previous"></i>
-                    <i class="fas fa-2x fa-play-circle" id="masterPlay"></i>
-                    <i class="fas fa-2x fa-step-forward" id="next"></i>
+
+            <div class="Recommendation">
+
+                <h1 class="head-recommend">Podcast</h1>
+                <div class="recommend-list">
+                    <!-- Song items -->
+                    <div class="albumitem" onclick="redirectToPodcast1()">
+                        <img class="cover-setting" src="assets/images/podcover/Toxic.png" />
+                        <span class="songName">How to manipulate people</span>
+                        <span class="songArtist">Sky Podcast</span>
+                    </div>
+                    <div class="albumitem" onclick="redirectToPodcast2()">
+                        <img class="cover-setting" src="assets/images/podcover/The Bare it all.png" />
+                        <span class="songName">Dealing with Toxic People</span>
+                        <span class="songArtist">The bare it all</span>
+                    </div>
+                    <div class="albumitem" onclick="redirectToPodcast3()">
+                        <img class="cover-setting" src="assets/images/podcover/offbeat.png" />
+                        <span class="songName">Usapang Pamilya, Sumbong kay Burong</span>
+                        <span class="songArtist">OFFBEAT</span>
+                    </div>
+                    <div class="albumitem" onclick="redirectToPodcast4()">
+                        <img class="cover-setting" src="assets/images/podcover/hugotmarcelo.png" />
+                        <span class="songName">Galing sa breakup? Gawin mong tatlo!</span>
+                        <span class="songArtist">Hugot Marcelo</span>
+                    </div>
+                    <div class="albumitem" onclick="redirectToPodcast5()">
+                        <img class="cover-setting" src="assets/images/podcover/skypod.png" />
+                        <span class="songName">Turn your Anxiety into SuperPower</span>
+                        <span class="songArtist">Sky Podcast</span>
+                    </div>
+                    <div class="albumitem" onclick="redirectToPodcast6()">
+                        <img class="cover-setting" src="assets/images/podcover/recreate.png" />
+                        <span class="songName">Millenials answer Adulthood questions</span>
+                        <span class="songArtist">RECREATE</span>
+                    </div>
+                    <div class="albumitem" onclick="redirectToPodcast7()">
+                        <img class="cover-setting" src="assets/images/podcover/payamantalks.png" />
+                        <span class="songName">Araw ng Pagmamahal</span>
+                        <span class="songArtist">Payaman Talks</span>
+                    </div>
                 </div>
             </div>
+
+            <div class="Recommendation">
+
+                <h1 class="head-recommend">Playlist</h1>
+                <div class="recommend-list">
+                    <!-- Song items -->
+                    <div class="albumitem">
+                        <img class="cover-setting" src="assets/images/cover/3.png" />
+                        <span class="songName">Playlist ng backburner</span>
+                        <span class="songArtist">Wag kang magpakatanga pls</span>
+                    </div>
+                    <div class="albumitem" onclick="redirectToPodcast2()">
+                        <img class="cover-setting" src="assets/images/cover/4.png" />
+                        <span class="songName">I miss you, baby</span>
+                        <span class="songArtist">miss u</span>
+                    </div>
+                    <div class="albumitem" onclick="redirectToPodcast3()">
+                        <img class="cover-setting" src="assets/images/cover/5.png" />
+                        <span class="songName">I miss you, balik ka na hindi ko na kaya</span>
+                        <span class="songArtist">bumalik ka na lumuluha na ko ng dugo</span>
+                    </div>
+                    <div class="albumitem" onclick="redirectToPodcast4()">
+                        <img class="cover-setting" src="assets/images/cover/7.png" />
+                        <span class="songName">Mahal na kita sa paraang ako lang ang nakaka alam</span>
+                        <span class="songArtist">silent sancturay, cup of joe, lola amour, arthur nery</span>
+                    </div>
+                    <div class="albumitem" onclick="redirectToPodcast5()">
+                        <img class="cover-setting" src="assets/images/cover/6.png" />
+                        <span class="songName">,di pinili,rebound</span>
+                        <span class="songArtist">,ni-love bomb at pang casual lang</span>
+                    </div>
+                    <div class="albumitem" onclick="redirectToPodcast6()">
+                        <img class="cover-setting" src="assets/images/cover/1.png" />
+                        <span class="songName">Lasang mahal pa kita</span>
+                        <span class="songArtist">pero nakakapagod na</span>
+                    </div>
+                    <div class="albumitem" onclick="redirectToPodcast7()">
+                        <img class="cover-setting" src="assets/images/cover/2.png" />
+                        <span class="songName">Kitchie Nadal, Yeng Constantino, Up Dharma Down</span>
+                        <span class="songArtist">Mapanakit na kanta</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </main>
 
+        <!-- Player controls -->
+        <div class="bottomcontainer">
+                <div class="songinfo-container">
+                    <div class="songinfo">
+                        <img id="masterSongImage" src="" width="100px" alt="Current Song Image" />
+                        <div class="masterSongInfo">
+                            <label id="masterSongName">Click a song to play</label><br />
+                            <label id="masterSongArtist">...</label>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="progcontainer">
+                    <div class="progress">
+                        <label id="currentTimeLabel">0:00</label>
+                        <input type="range" id="songProgress" value="0" min="0" max="100" step="1">
+                        <label id="durationLabel">0:00</label>
+                    </div>
+                    <div class="icon">
+                        <i id="shuffle" class="fa fa-random"></i>
+                        <i class="fas fa-2x fa-step-backward" id="previous"></i>
+                        <i class="fas fa-2x fa-play-circle" id="masterPlay"></i>
+                        <i class="fas fa-2x fa-step-forward" id="next"></i>
+                        <i id="repeat" class="fa fa-repeat"></i>
+                    </div>
+                    <div class="sound-settings">
+                        <input id="volumeControl" type="range" min="0" max="100" value="100">
+                        <button id="muteButton" aria-label="Mute Button">
+                            <i class="fas fa-volume-up"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     <script src="assets/js/home.js"></script>
-    <script>
-        // JavaScript to toggle dropdown visibility
-        document.addEventListener("DOMContentLoaded", function () {
-            const profileButton = document.querySelector(".profile-button");
-            const dropdownMenu = document.querySelector(".dropdown-menu");
-
-            profileButton.addEventListener("click", function (event) {
-                event.stopPropagation(); // Prevent click from propagating to document
-                dropdownMenu.classList.toggle("show");
-            });
-
-            // Close dropdown if clicking outside
-            document.addEventListener("click", function () {
-                dropdownMenu.classList.remove("show");
-            });
-        });
-
-        // JavaScript for scroll buttons functionality
-        let songListContainer = document.querySelector('.songlist');
-        let scrollLeftBtn = document.getElementById('scrollLeft');
-        let scrollRightBtn = document.getElementById('scrollRight');
-
-        // Scroll the song list left
-        scrollLeftBtn.addEventListener('click', () => {
-            songListContainer.scrollBy({ left: -200, behavior: 'smooth' });
-        });
-
-        // Scroll the song list right
-        scrollRightBtn.addEventListener('click', () => {
-            songListContainer.scrollBy({ left: 200, behavior: 'smooth' });
-        });
-    </script>
+    <script src="assets/js/homefunctions.js"></script>
 </body>
 
 </html>
