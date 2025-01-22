@@ -1,0 +1,37 @@
+.library-container {
+    position: relative;
+    left: 20px;
+    top: 10px;
+    max-width: 500px;
+    display: flex;
+    gap: 5px;
+    margin-bottom: 30px;
+}
+.librarybtn-playlist, .librarybtn-songs, .librarybtn-albums,
+.librarybtn-artist, .librarybtn-podcast {
+    margin: 5px;
+    background-color: #222222;
+    border: 1px solid #444444;
+    width: 70px;
+    height: 30px;
+    border-radius: 5px;
+    align-content: center;
+    text-align: center;
+    color: white;
+}
+.librarybtn-playlist:hover, .librarybtn-songs:hover, .librarybtn-albums:hover,
+.librarybtn-artist:hover, .librarybtn-podcast:hover {
+    border: 1px solid palevioletred;
+    transition: 0.2s ease-in;
+    color: rgb(228, 120, 156);
+}
+
+.librarybtn-text {
+    font-family: Arial;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.librarybtn-text:hover {
+    cursor: pointer;
+}
