@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VibeIt - Music On The Go</title>
+    <link href="assets/css/home.css" rel="stylesheet" />
+    <link href="assets/css/buttons.css" rel="stylesheet" />
+    <link href="assets/css/homefunctions.css" rel="stylesheet" />
+    <link href="assets/css/Navbar.css" media="screen and (min-width: 1100px)" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/d5b2540b36.js" crossorigin="anonymous"></script>
+    <script src="assets/js/profile.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/Navbar.css">
+    <link rel="stylesheet" href="assets/css/account.css">
+    
+</head>
+
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul class="navbar-nav">
+            <li class="logo">
+                <a class="nav-link" href="./index.html">
+                    <img class="logo-img" src="./assets/images/pd10-removebg-preview.png" alt="Vibe It Logo" />
+                    <span class="link-text">Vibe It</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./index.html">
+                    <img src="./assets/images/home.png" alt="Home" />
+                    <span class="link-text">Home</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./about.html">
+                    <img src="./assets/images/about.png" alt="About us" />
+                    <span class="link-text">About us</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./library.html">
+                    <img src="./assets/images/library.png" alt="Library" />
+                    <span class="link-text">Library</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <img src="./assets/images/home.png" alt="Request Songs" />
+                    <span class="link-text">Request Songs</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Top container -->
+        <div class="containertop">
+            <div class="profile-dropdown">
+                <button class="profile-button">
+                    <img src="assets/images/Kween-Yasmins-1024x576.png" alt="Profile" class="profile-icon" />
+                </button>
+                <div class="dropdown-menu">
+                    <a href="account.html">Account</a>
+                    <a href="profile.html">Profile</a>
+                    <a href="upgrade.html">Upgrade to Premium</a>
+                    <a href="settings.html">Settings</a>
+                    <a href="logout.php">Log Out</a>
+                </div>
+            </div>
+        </div>
+
+
+    </header>
+    <!-- Account Details Section -->
+    <main class="account-container">
+        <h1>Account Overview</h1>
+        <section class="account-details">
+            <h2>Profile Information</h2>
+            <p><strong>Name:</strong> <span id="user-name">Loading...</span></p>
+            <p><strong>Email:</strong> <span id="user-email">Loading...</span></p>
+            <p><strong>Subscription:</strong> <span id="user-plan">Loading...</span></p>
+            <button id="edit-profile-button" class="edit-btn">Edit Profile</button>
+        </section>
+
+        <section class="account-actions">
+            <h2>Manage Your Account</h2>
+            <ul>
+                <li><a href="upgrade.html" class="action-link">Upgrade to Premium</a></li>
+                <li><a href="settings.html" class="action-link">Account Settings</a></li>
+                <li><a href="logout.php" class="action-link">Log Out</a></li>
+            </ul>
+        </section>
+    </main>
+
+
+    </main>
+
+    <script src="assets/js/home.js"></script>
+    <script>
+        // JavaScript to toggle dropdown visibility
+        document.addEventListener("DOMContentLoaded", function () {
+            const profileButton = document.querySelector(".profile-button");
+            const dropdownMenu = document.querySelector(".dropdown-menu");
+
+            profileButton.addEventListener("click", function (event) {
+                event.stopPropagation(); // Prevent click from propagating to document
+                dropdownMenu.classList.toggle("show");
+            });
+
+            // Close dropdown if clicking outside
+            document.addEventListener("click", function () {
+                dropdownMenu.classList.remove("show");
+            });
+        });
+
+        // JavaScript for scroll buttons functionality
+        let songListContainer = document.querySelector('.songlist');
+        let scrollLeftBtn = document.getElementById('scrollLeft');
+        let scrollRightBtn = document.getElementById('scrollRight');
+
+        // Scroll the song list left
+        scrollLeftBtn.addEventListener('click', () => {
+            songListContainer.scrollBy({ left: -200, behavior: 'smooth' });
+        });
+
+        // Scroll the song list right
+        scrollRightBtn.addEventListener('click', () => {
+            songListContainer.scrollBy({ left: 200, behavior: 'smooth' });
+        });
+    </script>
+</body>
+
+</html>
