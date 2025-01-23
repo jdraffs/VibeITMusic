@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e1e1e;
+    color: #ffffff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.upgrade-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+}
+
+.upgrade-container h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.upgrade-details p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.upgrade-details ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.upgrade-details ul li {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.upgrade-btn {
+    background-color: #ff69b4;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.upgrade-btn:hover {
+    background-color: #ff1493;
+}
+
+@media (max-width: 768px) {
+    .upgrade-container {
+        width: 90%;
+        padding: 20px;
+    }
+}
