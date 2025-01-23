@@ -32,36 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const artistButton = document.querySelector(".librarybtn-artist");
   const podcastButton = document.querySelector(".librarybtn-podcast");
 
-  // Add click event listeners to each button
-  if (playlistButton) {
-      playlistButton.addEventListener("click", () => {
-          window.location.href = "playlist.html";
-      });
-  }
 
-  if (songsButton) {
-      songsButton.addEventListener("click", () => {
-          window.location.href = "songs.html";
-      });
-  }
-
-  if (albumsButton) {
-      albumsButton.addEventListener("click", () => {
-          window.location.href = "albums.html";
-      });
-  }
-
-  if (artistButton) {
-      artistButton.addEventListener("click", () => {
-          window.location.href = "artist.html";
-      });
-  }
-
-  if (podcastButton) {
-      podcastButton.addEventListener("click", () => {
-          window.location.href = "podcast.html";
-      });
-  }
 
   // Optional: Add pointer cursor to buttons
   document.querySelectorAll(".library-container > div").forEach(button => {
@@ -69,7 +40,80 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    // Get the button and playlist section
+    const playlistButton = document.querySelector(".librarybtn-playlist");
+    const playlistSection = document.querySelector(".Recommendation .head-recommend");
 
+    if (playlistButton && playlistSection) {
+        playlistButton.addEventListener("click", function () {
+            playlistSection.scrollIntoView({
+                behavior: "smooth",  // Smooth scrolling animation
+                block: "start"       // Aligns the section to the top of the viewport
+            });
+        });
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Get the button and playlist section
+    const playlistButton = document.querySelector(".librarybtn-songs");
+    const playlistSection = document.querySelector(".margin");
+
+    if (playlistButton && playlistSection) {
+        playlistButton.addEventListener("click", function () {
+            playlistSection.scrollIntoView({
+                behavior: "smooth",  // Smooth scrolling animation
+                block: "start"       // Aligns the section to the top of the viewport
+            });
+        });
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Get the button and playlist section
+    const playlistButton = document.querySelector(".librarybtn-artist");
+    const playlistSection = document.querySelector(".songlist-container .songlist");
+
+    if (playlistButton && playlistSection) {
+        playlistButton.addEventListener("click", function () {
+            playlistSection.scrollIntoView({
+                behavior: "smooth",  // Smooth scrolling animation
+                block: "start"       // Aligns the section to the top of the viewport
+            });
+        });
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Get the button and playlist section
+    const playlistButton = document.querySelector(".librarybtn-albums");
+    const playlistSection = document.querySelector(".album");
+
+    if (playlistButton && playlistSection) {
+        playlistButton.addEventListener("click", function () {
+            playlistSection.scrollIntoView({
+                behavior: "smooth",  // Smooth scrolling animation
+                block: "start"       // Aligns the section to the top of the viewport
+            });
+        });
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Get the button and playlist section
+    const playlistButton = document.querySelector(".librarybtn-podcast");
+    const playlistSection = document.querySelector(".head-recommend");
+
+    if (playlistButton && playlistSection) {
+        playlistButton.addEventListener("click", function () {
+            playlistSection.scrollIntoView({
+                behavior: "smooth",  // Smooth scrolling animation
+                block: "start"       // Aligns the section to the top of the viewport
+            });
+        });
+    }
+});
 let songData = [];
 
 // Fetch song data from the JSON file
